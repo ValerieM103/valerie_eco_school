@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-school S.A.S. - Cultiva tu creatividad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: rgb(252,243,225);
+            --light-green: rgb(205,225,195);
+            --peach: rgb(250,178,145);
+            --dark-green: rgb(52,78,65);
+            --text-dark: rgb(40,50,45);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            background-color: var(--dark-green);
+            color: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .title-highlight {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Decoracion linea curva dorada */
+        .curve-deco {
+            position: relative;
+        }
+
+        .curve-deco::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(90deg, var(--dark-green), var(--peach));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--dark-green);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--peach);
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            display: block;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            color: var(--cream);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--peach);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--cream);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background-color: var(--dark-green);
+            border-radius: 0 0 60px 60px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(40,60,110,0.3);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, var(--peach) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, var(--dark-green) 0%, transparent 50%);
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            color: var(--peach);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--cream);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Common */
+        section {
+            padding: 90px 20px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4.5rem;
+            color:var(--peach) ;
+            text-align: center;
+            margin-bottom: 80px;
+            font-weight: 400;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Quienes Somos */
+        .quienes-somos {
+            background-color: var(--light-green);
+        }
+
+        .quienes-somos-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .quienes-somos-text h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            color: var(--dark-green);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .quienes-somos-text p {
+            font-size: 1.05rem;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .quienes-somos-image {
+            border-radius: 30px;
+            overflow: hidden;
+            border: 2px solid var(--dark-green);
+        }
+
+        .quienes-somos-image img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Nuestro Objetivo */
+        .objetivo {
+            background-color: var(--dark-green);
+        }
+
+        .objetivo-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px 30px;
+            background-color: var(--cream);
+            border-radius: 34px;
+            border: 2px solid var(--peach);
+            box-shadow: 0 20px 50px rgba(40,60,110,0.15);
+        }
+
+        .objetivo-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            color: var(--dark-green);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .objetivo-content p {
+            font-size: 1.15rem;
+            color: var(--dark-green);
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        /* Mision Vision */
+        .mision-vision {
+            background-color: var(--peach);
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .mv-card {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 30px;
+            border: 2px solid var(--dark-green);
+            box-shadow: 0 15px 40px rgba(40,60,110,0.12);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(40,60,110,0.2);
+        }
+
+        .mv-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            color: var(--dark-green);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .mv-card p {
+            color: var(--dark-green);
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Politica Calidad Valores */
+        .politica {
+            background-color: var(--light-green);
+        }
+
+        .politica-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .politica-item {
+            background: var(--cream);
+            padding: 30px;
+            border-radius: 28px;
+            border: 2px solid var(--dark-green);
+            box-shadow: 0 15px 40px rgba(40,60,110,0.08);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .politica-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--peach);
+        }
+
+        .politica-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .politica-item p, .politica-item ul {
+            color: var(--dark-green);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .politica-item ul {
+            margin-left: 22px;
+        }
+
+        .politica-item li {
+            margin-bottom: 10px;
+        }
+
+/* Tienda Presencial */
+.tienda {
+    background: var(--cream);
+    padding: 80px 20px;
+}
+
+.tienda-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 30px;
+}
+
+.tienda-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+            color: var(--cream);
+            margin-bottom: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.tienda-content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    color: var(--dark-green);
+    margin-bottom: 25px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.tienda-image {
+    margin: 30px auto 0;
+    max-width: 700px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--dark-green);
+}
+
+        .tienda-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .ubicacion {
+            background-color: var(--peach);
+        }
+
+        .ubicacion-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .ubicacion-img {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--dark-green);
+        }
+
+        .ubicacion-img img {
+            width: 100%;
+            display: block;
+        }
+
+        .ubicacion-info h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .ubicacion-info p {
+            font-size: 1.1rem;
+            color: var(--dark-green);
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        /* Catalogo */
+        .catalogo {
+            background-color: var(--cream);
+        }
+
+        .catalogo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .producto {
+            background: var(--cream);
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid var(--dark-green);
+            box-shadow: 0 15px 40px rgba(40,60,110,0.08);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .producto:hover {
+            transform: translateY(-8px);
+            border-color: var(--peach);
+        }
+
+        .producto img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .producto-info {
+            padding: 30px;
+        }
+
+        .producto h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .producto p {
+            color: var(--dark-green);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Trabaja con nosotros */
+        .trabaja {
+            background-color: var(--dark-green);
+        }
+
+        .trabaja-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .trabaja-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            color: var(--cream);
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        form {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid var(--dark-green);
+            box-shadow: 0 20px 50px rgba(40,60,110,0.15);
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 300;
+            color: var(--dark-green);
+            font-size: 1rem;
+        }
+
+        .form-group input {
+            padding: 14px;
+            border: 1px solid var(--dark-green);
+            border-radius: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            background: var(--cream);
+            color: var(--dark-green);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--light-green);
+        }
+
+        .button.submit-btn {
+            background: var(--dark-green);
+            color: var(--cream);
+            border: none;
+            padding: 18px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            border-radius: 20px ;
+        }
+
+        .submit-btn:hover {
+            background: var(--peach);
+            color: var(--dark-green);
+            transform: translateY(-2px);
+            border-radius: 20px ;
+        }
+
+        .submit-btn:hover {
+            background: var(--peach);
+        }
+
+        #form-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-weight: 600;
+            color: var(--peach);
+            display: none;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-green);
+            color: var(--cream);
+            padding: 80px 20px 40px;
+            border-radius: 60px 60px 0 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+        }
+
+        .footer-brand {
+            text-align: center;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            margin-bottom: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 12px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            color: var(--peach);
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .footer-brand p {
+            font-size: 1rem;
+            color: var(--cream);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+
+        .footer-contact h3, .footer-social h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            color: var(--peach);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .footer-contact p, .footer-social p {
+            font-size: 1rem;
+            color: var(--cream);
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding-top: 35px;
+            border-top: 1px solid var(--dark-green);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--cream);
+            font-weight: 300;
+        }
+
+        /* Floating Chat Button */
+        .chat-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+.chat-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--dark-green);
+            color: var(--cream);
+            padding: 16px 22px;
+            border-radius: 40px;
+            box-shadow: 0 8px 25px rgba(40,60,110,0.35);
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            border: 2px solid var(--peach);
+        }
+
+        .chat-btn:hover {
+            transform: scale(1.05);
+            background: var(--peach);
+        }
+
+        .chat-btn img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .chat-btn:hover {
+            transform: scale(1.05);
+            background: var(--peach);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255,244,227,0.98);
+                border-top: 1px solid var(--dark-green);
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.4rem;
+            }
+
+            .quienes-somos-content,
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 12px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .mv-card, .politica-item, .producto {
+                padding: 25px;
+            }
+        }
+
+
+        .section-title1{
+            font-family: 'Poppins', sans-serif;
+            font-size: 4.5rem;
+            color:var(--dark-green) ;
+            text-align: center;
+            margin-bottom: 80px;
+            font-weight: 400;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <img src="Logo.png" alt="Logo Eco-school">
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#quiénes-somos">Quiénes somos</a></li>
+                <li><a href="#objetivo">Nuestro objetivo</a></li>
+                <li><a href="#misión-visión">Misión y visión</a></li>
+                <li><a href="#política">Política</a></li>
+                <li><a href="#tienda">Nuestra tienda presencial</a></li>
+                <li><a href="#catálogo">Catálogo</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Eco-school S.A.S.</h1>
+        <p>"Cultiva tu creatividad"</p>
+    </section>
+
+    <section class="quienes-somos" id="quiénes-somos">
+        <div class="container">
+            <h2 class="section-title">Quiénes somos</h2>
+            <div class="quienes-somos-content">
+                <div class="quienes-somos-text">
+<p>Somos Eco-school S.A.S., una empresa fundada por 5 personas apasionadas por el medio ambiente y la creatividad.</p>
+                    <p>Diseñamos y producimos libretas anilladas personalizadas, reciclables, fabricadas con papel que se puede sembrar después de ser usado.</p>
+                    <p>Cada libreta nace de papel ecológico proveniente de papel reciclado y biodegradable, pensando en un futuro más verde para todos.</p>
+                </div>
+                <div class="quienes-somos-image">
+                    <img src="libretas anilladas.jpg" alt="Libretas anilladas personalizadas">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="objetivo" id="objetivo">
+        <div class="container">
+            <h2 class="section-title">Nuestro objetivo</h2>
+            <div class="objetivo-content">
+                <p>Producir libretas personalizadas con papel que se puede sembrar después de ser usado y papel ecológico a partir de papel reciclado y biodegradable, de manera sostenible.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mision-vision" id="misión-visión">
+        <div class="container">
+            <h2 class="section-title1">Misión y visión</h2>
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <h3>Misión</h3>
+                    <p>Eco-school encuentra su razón de ser en ofrecer productos sostenibles y asequibles a la sociedad a través de la transformación y la conexión con los usuarios y el medio ambiente. Busca garantizar la reducción de residuos y promover una vida sana para cada planta, además de la ayuda y la huella humana.</p>
+                </div>
+                <div class="mv-card">
+                    <h3>Visión</h3>
+                    <p>Eco-school se proyecta en un periodo de cinco años como una empresa reconocida a nivel nacional y como el principal referente de libretas y productos ecosostenibles, inspirando a tener conciencia ambiental.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="politica" id="política">
+        <div class="container">
+            <h2 class="section-title">Política de calidad y valores</h2>
+            <div class="politica-grid">
+                <div class="politica-item">
+                    <h3>Política de Sostenibilidad - Ambiental</h3>
+                    <p>Uso de materiales reciclables y biodegradables sin generar impacto ambiental ni huella de carbono.</p>
+                </div>
+                <div class="politica-item">
+                    <h3>Política de Sostenibilidad - Social</h3>
+                    <p>Educación ambiental, donando el 2% de las ganancias a instituciones de ayuda social.</p>
+                </div>
+                <div class="politica-item">
+                    <h3>Política de Sostenibilidad - Económica</h3>
+                    <p>Salarios dignos y expansión del mercado para crear conciencia sobre el uso del papel.</p>
+                </div>
+                <div class="politica-item">
+                    <h3>Política de Calidad</h3>
+                    <p>Mantener la más alta calidad, desarrollo integro del entorno laboral, amigable con el medio ambiente y enfoque de respeto y dignidad por los derechos humanos y ambientales.</p>
+                </div>
+                <div class="politica-item">
+                    <h3>Valores</h3>
+                    <ul>
+                        <li>1. Respeto (al medio ambiente).</li>
+                        <li>2. Empatía (identidad de usuarios).</li>
+                        <li>3. Sostenibilidad.</li>
+                        <li>4. Colaboración.</li>
+                        <li>5. Supervivencia.</li>
+                        <li>6. Valentía.</li>
+                        <li>7. Honestidad.</li>
+                        <li>8. Paciencia.</li>
+                        <li>9. Decencia.</li>
+                        <li>10. Prudencia.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tienda" id="tienda">
+        <div class="container">
+            <h2 class="section-title">Tienda Presencial</h2>
+            <div class="tienda-content">
+                <p>Visite nuestra tienda física y conozca nuestros productos sostenibles en persona.</p>
+                <div class="tienda-image">
+                    <img src="Ubicacion.png" alt="Tienda Eco-school">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ubicacion" id="ubicacion">
+        
+    </section>
+
+    <section class="catalogo" id="catálogo">
+        <div class="container">
+            <h2 class="section-title">Catálogo</h2>
+            <div class="catalogo-grid">
+                <div class="producto">
+                    <img src="libretas anilladas.jpg" alt="Libretas anilladas">
+                    <div class="producto-info">
+                        <h3>Libretas anilladas</h3>
+                        <p>Personalizadas, reciclables y con papel que se puede sembrar. Dale una segunda vida a tus notas convirtiendolas en plantas.</p>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img src="libreta cocida.jpg" alt="Libreta cocida">
+                    <div class="producto-info">
+                        <h3>Libreta cocida</h3>
+                        <p>Un diseno artesanal y unico, elaborado con tecnicas tradicionales y papel ecologico para los amantes de lo hecho a mano.</p>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img src="esferos.jpg" alt="Esferos">
+                    <div class="producto-info">
+                        <h3>Esferos</h3>
+                        <p>Escribi con conciencia. Esferos ecologicos que complementan tu libreta sembrable en cada trazo.</p>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img src="papel artesanal.jpg" alt="Papel artesanal">
+                    <div class="producto-info">
+                        <h3>Papel artesanal</h3>
+                        <p>Papel reciclado y biodegradable, listo para ser sembrado o usado en tus proyectos creativos mas sostenibles.</p>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img src="separadores.jpg" alt="Separadores">
+                    <div class="producto-info">
+                        <h3>Separadores</h3>
+                        <p>Organiza tus ideas con estilo. Separadores ecologicos para mantener tus libretas ordenadas y alineadas con el planeta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trabaja" id="trabaja">
+        <div class="container">
+            <h2 class="section-title">Trabaja con nosotros</h2>
+            <div class="trabaja-content">
+                <form id="trabaja-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" name="apellidos" required placeholder="Ingresa tus apellidos">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Numero de telefono</label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 320 000 0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo electronico</label>
+                        <input type="email" id="correo" name="correo" required placeholder="tu@correo.com">
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar solicitud</button>
+                    <div id="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="Logo.png" alt="Logo Eco-school">
+                    <h3>Eco-school S.A.S.</h3>
+                    <p>"Cultiva tu creatividad"</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contactanos</h3>
+                    <p>Instagram: @eco_school</p>
+                    <p>Correo: ecoschool@gmail.com</p>
+                    <p>Telefonos: +57 320 478 5462 | +57 320 334 2856</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Síguenos</h3>
+                    <p>Instagram: @eco_school</p>
+                    <p>Correo: ecoschool@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Eco-school S.A.S. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chat-float">
+        <a href="https://wa.me/573204785462" class="chat-btn" target="_blank">
+            <img src="chatea.jpg" alt="Icono chat">
+            <span>¡¡Chatea con nosotros!!</span>
+        </a>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        const sections = document.querySelectorAll('section');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                navLinks.classList.remove('active');
+                
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                sections.forEach(section => {
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(20px)';
+                    section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+                
+                setTimeout(() => {
+                    targetSection.style.opacity = '1';
+                    targetSection.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+
+        const form = document.getElementById('trabaja-form');
+        const message = document.getElementById('form-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            message.style.display = 'block';
+            message.textContent = 'Gracias por tu solicitud. Pronto sera atendido.';
+            form.reset();
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+
+</body>
+</html>
